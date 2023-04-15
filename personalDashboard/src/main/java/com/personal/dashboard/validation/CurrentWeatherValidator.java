@@ -6,6 +6,7 @@ import com.personal.dashboard.exception.ValidationError;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,5 +48,48 @@ public class CurrentWeatherValidator {
 
         return validationErrorList;
 
+    }
+
+    /**
+     * Validate current weather by city, stateCode, and country code
+     *
+     * @param city - String city
+     * @param stateCode - String stateCode
+     * @param countryCode - String countryCode
+     * @return - {@link  List<ValidationError>}
+     */
+    public static List<ValidationError> validateCurrentWeatherByCityStateCountry(final String city, final String stateCode, final String countryCode) {
+
+        List<ValidationError> validationErrorList = new ArrayList<>();
+
+        // 'city'
+        if (StringUtils.isEmpty(city)) {
+
+            validationErrorList.add(new ValidationError("'city' name cannot be empty",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        // length of stateCode MUST be 2
+        if(!StringUtils.isEmpty(stateCode) && StringUtils.length(stateCode) != 2) {
+
+            validationErrorList.add(new ValidationError("'stateCode' must be of two characters only",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        // length of countryCode MUST be 2
+        if(!StringUtils.isEmpty(countryCode) && StringUtils.length(countryCode) != 2) {
+
+            validationErrorList.add(new ValidationError("'countryCode' must be of two characters only",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        // if 'stateCode' is present, 'countryCode' must also be present
+        if(!StringUtils.isEmpty(stateCode) && StringUtils.isEmpty(countryCode)) {
+
+            validationErrorList.add(new ValidationError("Provided 'stateCode' must include 'countryCode' as well",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        return validationErrorList;
     }
 }

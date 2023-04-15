@@ -40,7 +40,7 @@ public class CurrentWeatherRepositoryImpl implements CurrentWeatherRepositoryCus
             // 3rd party API invoked
             currentWeatherResponse = openWeatherMapUtility.invokeCurrentWeatherResponseReport(currentWeatherRequest);
 
-            // if response is successfull
+            // if response is successful
             if(currentWeatherResponse != null) {
 
                 return currentWeatherRepository.save(currentWeatherResponse);
