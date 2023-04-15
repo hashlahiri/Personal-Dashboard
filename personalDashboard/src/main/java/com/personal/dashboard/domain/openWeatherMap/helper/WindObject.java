@@ -1,5 +1,6 @@
-package com.personal.dashboard.domain.openWeatherMap;
+package com.personal.dashboard.domain.openWeatherMap.helper;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder(toBuilder = true)
 public class WindObject {
 

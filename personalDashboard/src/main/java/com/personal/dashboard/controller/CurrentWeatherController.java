@@ -54,4 +54,22 @@ public class CurrentWeatherController {
         return new ResponseEntity<CurrentWeatherCityResponse>(response, HttpStatus.OK);
     }
 
+    /**
+     * Get the current weather by zipcode and country code endpoint
+     *
+     * @param zipCode - String zipCode
+     * @param countryCode - String countryCode
+     * @return - {@link CurrentWeatherCityResponse}
+     */
+    @RequestMapping(value = "/zipCodeCountry", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CurrentWeatherCityResponse> getByZipCodeCountry(
+            @RequestParam(value = "zipCode", required = true) String zipCode,
+            @RequestParam(value = "countryCode", required = true) String countryCode
+    ) {
+
+        CurrentWeatherCityResponse response = currentWeatherService.getByZipCodeCountryService(zipCode, countryCode);
+
+        return new ResponseEntity<CurrentWeatherCityResponse>(response, HttpStatus.OK);
+    }
+
 }

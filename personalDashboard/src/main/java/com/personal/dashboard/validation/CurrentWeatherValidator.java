@@ -92,4 +92,40 @@ public class CurrentWeatherValidator {
 
         return validationErrorList;
     }
+
+
+    /**
+     * Validate current weather by zipCode and countryCode
+     *
+     * @param zipCode - String zipCode
+     * @param countryCode - String countryCode
+     * @return - {@link List<ValidationError>}
+     */
+    public static List<ValidationError> validateCurrentWeatherByZipCodeCountry(final String zipCode, final String countryCode) {
+
+        List<ValidationError> validationErrorList = new ArrayList<>();
+
+        //'zipCode'
+        if(StringUtils.isEmpty(zipCode)) {
+
+            validationErrorList.add(new ValidationError("'zipCode' cannot be empty",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        // 'countryCode'
+        if(StringUtils.isEmpty(countryCode)) {
+
+            validationErrorList.add(new ValidationError("'countryCode' cannot be empty",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        // validation for 'countryCode' == 2 characters
+        if(!StringUtils.isEmpty(countryCode) && StringUtils.length(countryCode) != 2) {
+
+            validationErrorList.add(new ValidationError("'countryCode' MUST be of 2 characters only",
+                    ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+        }
+
+        return validationErrorList;
+    }
 }

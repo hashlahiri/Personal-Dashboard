@@ -59,4 +59,41 @@ public class CurrentWeatherCityRepositoryImpl implements CurrentWeatherCityRepos
 
         return currentWeatherCityResponse;
     }
+
+    /**
+     * Get the current weather by zipcode and country code
+     *
+     * @param zipCode - String zipCode
+     * @param countryCode - String countryCode
+     * @return - {@link CurrentWeatherCityResponse}
+     */
+    @Override
+    public CurrentWeatherCityResponse getByZipCodeCountry(String zipCode, String countryCode) {
+
+        //Validation
+        List<ValidationError> validationErrorList = CurrentWeatherValidator.validateCurrentWeatherByZipCodeCountry(zipCode, countryCode);
+        if (!validationErrorList.isEmpty()) {
+            LOG.error("Could not get current weather by zipcode and country due to insufficient data.");
+            throw new ValidationException(validationErrorList, ErrorResponseEnum.VALIDATION_ERROR);
+        }
+
+        CurrentWeatherCityResponse currentWeatherCityResponse = CurrentWeatherCityResponse.builder().build();
+        try {
+            // 3rd party API invoked
+            currentWeatherCityResponse = openWeatherMapUtility.invokeCurrentWeatherCityResponseByZipCodeAndCountryCodeReport(zipCode, countryCode);
+
+            // if response is successful
+            if(currentWeatherCityResponse != null) {
+
+                return currentWeatherCityRepository.save(currentWeatherCityResponse);
+            }
+
+        } catch (Exception e) {
+
+            LOG.error("Something went wrong inside getByZipCountry");
+            LOG.error("{} || {} , caused an issue, it would be resolved soon!", e.getMessage(), e.getClass());
+        }
+
+        return currentWeatherCityResponse;
+    }
 }

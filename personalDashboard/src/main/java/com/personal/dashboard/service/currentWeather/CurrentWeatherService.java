@@ -45,4 +45,16 @@ public class CurrentWeatherService {
 
         return currentWeatherCityRepository.getByCityStateCountry(city, stateCode, countryCode);
     }
+
+    /**
+     * Get the current weather by zipcode and country code Service
+     *
+     * @param zipCode - String zipCode
+     * @param countryCode - String countryCode
+     * @return - {@link CurrentWeatherCityResponse}
+     */
+    public CurrentWeatherCityResponse getByZipCodeCountryService(String zipCode, String countryCode) {
+
+        return currentWeatherCityRepository.getByZipCodeCountry(zipCode, countryCode);
+    }
 }

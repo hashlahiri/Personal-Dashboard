@@ -1,4 +1,4 @@
-package com.personal.dashboard.domain.openWeatherMap;
+package com.personal.dashboard.domain.openWeatherMap.helper;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class Coord {
+public class CloudsObject {
 
-    private Double lat;
-    private Double lon;
+    private Integer all;
 }

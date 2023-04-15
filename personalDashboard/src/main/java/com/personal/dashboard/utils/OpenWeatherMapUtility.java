@@ -19,8 +19,8 @@ public class OpenWeatherMapUtility {
 
     @Autowired
     private OpenWeatherMapProperties openWeatherMapProperties;
-    private final String OPEN_WEATHER_CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/forecast";
-    private final String OPEN_WEATHER_CURRENT_WEATHER_CITY_URL = "http://api.openweathermap.org/data/2.5/weather";
+    private final String OPEN_WEATHER_CURRENT_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast";
+    private final String OPEN_WEATHER_CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(OpenWeatherMapUtility.class);
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ public class OpenWeatherMapUtility {
 
         CurrentWeatherResponse response = CurrentWeatherResponse.builder().build();
         try {
-            response = WebClient.create(OPEN_WEATHER_CURRENT_WEATHER_URL).get().
+            response = WebClient.create(OPEN_WEATHER_CURRENT_FORECAST_URL).get().
                     uri(uriBuilder -> uriBuilder
                             .queryParam("appid", openWeatherMapProperties.getApikey())
                             .queryParam("lat", currentWeatherRequest.getLatitude())
@@ -57,7 +57,7 @@ public class OpenWeatherMapUtility {
     }
 
     /**
-     * Invoke current weather by city, stateCode, countryCode resposne report
+     * Invoke current weather by city, stateCode, countryCode response report
      *
      * @param city - String city
      * @param stateCode - String stateCode
@@ -84,7 +84,7 @@ public class OpenWeatherMapUtility {
 
             final String finalQValue = qValue;
 
-            response = WebClient.create(OPEN_WEATHER_CURRENT_WEATHER_CITY_URL).get().
+            response = WebClient.create(OPEN_WEATHER_CURRENT_WEATHER_URL).get().
                     uri(uriBuilder -> uriBuilder
                             .queryParam("appid", openWeatherMapProperties.getApikey())
                             .queryParam("q", finalQValue)
@@ -103,8 +103,32 @@ public class OpenWeatherMapUtility {
     }
 
 
+    /**
+     * Invoke current weather by zipCode and countryCode
+     *
+     * @param zipCode - String zipCode
+     * @param countryCode - String countryCode
+     * @return - {@link CurrentWeatherCityResponse}
+     */
+    public CurrentWeatherCityResponse invokeCurrentWeatherCityResponseByZipCodeAndCountryCodeReport(String zipCode, String countryCode) {
 
+        CurrentWeatherCityResponse response = CurrentWeatherCityResponse.builder().build();
+        try {
+            response = WebClient.create(OPEN_WEATHER_CURRENT_WEATHER_URL).get().
+                    uri(uriBuilder -> uriBuilder
+                            .queryParam("appid", openWeatherMapProperties.getApikey())
+                            .queryParam("zip", zipCode + "," + countryCode)
+                            .build() )
+                    .retrieve()
+                    .bodyToMono(CurrentWeatherCityResponse.class)
+                    .block();
 
+        } catch (Exception e) {
 
+            LOG.error("Something went wrong inside invokeCurrentWeatherCityResponseByZipCodeAndCountryCodeReport");
+            LOG.error("{} || {} , caused an issue, it would be resolved soon!", e.getMessage(), e.getClass());
+        }
 
+        return response;
+    }
 }
