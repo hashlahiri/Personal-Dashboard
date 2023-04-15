@@ -1,0 +1,94 @@
+[{
+  "_id": {
+    "$oid": "643afdfc687d275447ec92c1"
+  },
+  "base": "stations",
+  "clouds": {
+    "all": 40
+  },
+  "cod": "200",
+  "coord": {
+    "lat": 22.5697,
+    "lon": 88.3697
+  },
+  "dt": "1681587375",
+  "id": "1275004",
+  "main": {
+    "temp": 305.12,
+    "feels_like": 312.12,
+    "temp_min": 305.12,
+    "temp_max": 305.12,
+    "pressure": 1005,
+    "humidity": 79
+  },
+  "name": "Kolkata",
+  "sys": {
+    "_id": "9114",
+    "country": "IN",
+    "sunrise": 1681602354,
+    "sunset": 1681647996,
+    "type": 1
+  },
+  "timezone": 19800,
+  "visibility": 3200,
+  "weather": [
+    {
+      "_id": "721",
+      "main": "Haze",
+      "description": "haze",
+      "icon": "50n"
+    }
+  ],
+  "wind": {
+    "speed": 2.06,
+    "deg": 200
+  }
+},{
+  "_id": {
+    "$oid": "643afdfe687d275447ec92c2"
+  },
+  "base": "stations",
+  "clouds": {
+    "all": 100
+  },
+  "cod": "200",
+  "coord": {
+    "lat": 22.4607,
+    "lon": 88.3867
+  },
+  "dt": "1681587491",
+  "id": "0",
+  "main": {
+    "temp": 305.12,
+    "feels_like": 312.12,
+    "temp_min": 305.12,
+    "temp_max": 305.12,
+    "pressure": 1005,
+    "sea_level": 1005,
+    "grnd_level": 1004,
+    "humidity": 75
+  },
+  "name": "Garia Garden",
+  "sys": {
+    "_id": "9114",
+    "country": "IN",
+    "sunrise": 1681602356,
+    "sunset": 1681647986,
+    "type": 1
+  },
+  "timezone": 19800,
+  "visibility": 10000,
+  "weather": [
+    {
+      "_id": "804",
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04n"
+    }
+  ],
+  "wind": {
+    "speed": 2.86,
+    "deg": 225,
+    "gust": 5.65
+  }
+}]
