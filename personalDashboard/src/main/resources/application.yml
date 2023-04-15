@@ -1,0 +1,16 @@
+server:
+    port: 9000
+spring:
+    banner:
+        location: classpath:banner.txt
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/personalDashboardApp
+    main:
+        allow-bean-definition-overriding: true
+        allow-circular-references: true
+    mvc:
+        pathmatch:
+            matching-strategy: ANT_PATH_MATCHER
+weather:
+    apikey: ca3cc4741995c4a5bd2676871240df44
