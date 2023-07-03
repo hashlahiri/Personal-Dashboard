@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "0865478d-6b7d-428f-bac4-0de7e385b3d5",
+		"name": "PersonalDashboard APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19075691"
+	},
+	"item": [
+		{
+			"name": "Open Weather APIs",
+			"item": [
+				{
+					"name": "3rd Party APIs",
+					"item": [
+						{
+							"name": "Forecast current weather Lat+Lon",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=standard&lang=EN&appid=ca3cc4741995c4a5bd2676871240df44",
+									"protocol": "http",
+									"host": [
+										"api",
+										"openweathermap",
+										"org"
+									],
+									"path": [
+										"data",
+										"2.5",
+										"forecast"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "44.34"
+										},
+										{
+											"key": "lon",
+											"value": "10.99"
+										},
+										{
+											"key": "units",
+											"value": "standard"
+										},
+										{
+											"key": "lang",
+											"value": "EN"
+										},
+										{
+											"key": "appid",
+											"value": "ca3cc4741995c4a5bd2676871240df44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forecast current weather Cityname ONLY",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=ca3cc4741995c4a5bd2676871240df44",
+									"protocol": "https",
+									"host": [
+										"api",
+										"openweathermap",
+										"org"
+									],
+									"path": [
+										"data",
+										"2.5",
+										"weather"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "{city name}"
+										},
+										{
+											"key": "appid",
+											"value": "ca3cc4741995c4a5bd2676871240df44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forecast current weather cityname, country code ONLY",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid=ca3cc4741995c4a5bd2676871240df44",
+									"protocol": "https",
+									"host": [
+										"api",
+										"openweathermap",
+										"org"
+									],
+									"path": [
+										"data",
+										"2.5",
+										"weather"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "{city name},{country code}"
+										},
+										{
+											"key": "appid",
+											"value": "ca3cc4741995c4a5bd2676871240df44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forecast current weather city name, state code, country code ONLY",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid=ca3cc4741995c4a5bd2676871240df44",
+									"protocol": "https",
+									"host": [
+										"api",
+										"openweathermap",
+										"org"
+									],
+									"path": [
+										"data",
+										"2.5",
+										"weather"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "{city name},{state code},{country code}"
+										},
+										{
+											"key": "appid",
+											"value": "ca3cc4741995c4a5bd2676871240df44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forecast current weather zipcode and country code ONLY",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid=ca3cc4741995c4a5bd2676871240df44",
+									"protocol": "https",
+									"host": [
+										"api",
+										"openweathermap",
+										"org"
+									],
+									"path": [
+										"data",
+										"2.5",
+										"weather"
+									],
+									"query": [
+										{
+											"key": "zip",
+											"value": "{zip code},{country code}"
+										},
+										{
+											"key": "appid",
+											"value": "ca3cc4741995c4a5bd2676871240df44"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Current Weather by Lat and Long",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lat\" : \"44.34\",\r\n    \"lon\" : \"10.99\",\r\n    \"units\" : \"STANDARD\",\r\n    \"lang\" : \"EN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/currentWeather/latLong",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currentWeather",
+								"latLong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current Weather By City, StateCode, CountryCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/currentWeather/cityStateCountry?city=milan&countryCode=IT",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currentWeather",
+								"cityStateCountry"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "milan"
+								},
+								{
+									"key": "stateCode",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "countryCode",
+									"value": "IT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current Weather By zipCode and countryCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/currentWeather/zipCodeCountry?zipCode=700084&countryCode=IN",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currentWeather",
+								"zipCodeCountry"
+							],
+							"query": [
+								{
+									"key": "zipCode",
+									"value": "700084"
+								},
+								{
+									"key": "countryCode",
+									"value": "IN"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JsonCompare APIs",
+			"item": [
+				{
+					"name": "If key exists within json",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jsonCompare1\": \"{ \\\"parent\\\": { \\\"child\\\": \\\"value\\\" } }\",\r\n    \"jsonCompare2\": \"parent\",\r\n    \"jsonCompare3\": \"child\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/json/ifKeyExists/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"json",
+								"ifKeyExists",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
