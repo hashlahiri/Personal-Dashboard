@@ -19,12 +19,12 @@ public class JsonCompareValidator {
 
 
     /**
-     * Validate JsonExists within another json or not
+     * Validate json key exists inside another json
      *
      * @param jsonCompareRequest - {@link JsonCompareRequest}
      * @return - {@link List<ValidationError>}
      */
-    public static List<ValidationError> validateJsonExistsWithinJson(final JsonCompareRequest jsonCompareRequest) {
+    public static List<ValidationError> validateJsonKeyExistsWithinJson(final JsonCompareRequest jsonCompareRequest) {
 
         List<ValidationError> validationErrorList = new ArrayList<>();
 
@@ -35,12 +35,17 @@ public class JsonCompareValidator {
         } else {
 
             if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare1())) {
-                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare1'' cannot be Empty",
+                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare1'' cannot be Empty, contains actual json",
                         ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
             }
 
             if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare2())) {
-                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare2'' cannot be Empty",
+                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare2'' cannot be Empty, it holds the json pointer to search under",
+                        ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
+            }
+
+            if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare3())) {
+                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare3'' cannot be Empty, it holds the json key we are searching",
                         ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
             }
 
@@ -48,4 +53,5 @@ public class JsonCompareValidator {
 
         return validationErrorList;
     }
+
 }

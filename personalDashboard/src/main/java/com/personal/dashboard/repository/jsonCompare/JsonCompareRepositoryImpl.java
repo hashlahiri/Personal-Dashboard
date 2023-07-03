@@ -22,20 +22,27 @@ public class JsonCompareRepositoryImpl {
     private static final Logger LOG = LoggerFactory.getLogger(JsonCompareRepositoryImpl.class);
             
     /////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    public String findJsonInsideAnotherJson(JsonCompareRequest jsonCompareRequest) {
+
+    /**
+     * Json matching is by default case-sensitive and uses regular expressions
+     *
+     * @param jsonCompareRequest - {@link JsonCompareRequest}
+     * @return - {@link String}
+     */
+    public String findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
         
         String result = null;
         try {
             //validation
-            List<ValidationError> validationErrorList = JsonCompareValidator.validateJsonExistsWithinJson(jsonCompareRequest);
+            List<ValidationError> validationErrorList = JsonCompareValidator.validateJsonKeyExistsWithinJson(jsonCompareRequest);
             if (!validationErrorList.isEmpty()) {
                 LOG.error("Could not find json inside another json due to insufficient data.");
                 throw new ValidationException(validationErrorList, ErrorResponseEnum.VALIDATION_ERROR);
             }
 
-            // jsonCompare1 --> parent Json, jsonCompare2 --> child Json
-            result = jsonCompareUtility.jsonExistsWithinAnotherJson(jsonCompareRequest.getJsonCompare1(), jsonCompareRequest.getJsonCompare2());
+            // jsonCompare1 --> Json, jsonCompare2 --> Key we are searching for
+            result = jsonCompareUtility.jsonKeyExistsWithinJson(jsonCompareRequest.getJsonCompare1(), jsonCompareRequest.getJsonCompare2(),
+                    jsonCompareRequest.getJsonCompare3());
 
             LOG.info("Successfully processed json comparison");
             
@@ -47,4 +54,5 @@ public class JsonCompareRepositoryImpl {
         
         return result;
     }
+
 }

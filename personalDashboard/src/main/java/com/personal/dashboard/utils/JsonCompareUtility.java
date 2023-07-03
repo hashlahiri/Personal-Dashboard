@@ -1,52 +1,58 @@
 package com.personal.dashboard.utils;
 
-import io.json.compare.CompareMode;
-import io.json.compare.JSONCompare;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Component
 public class JsonCompareUtility {
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     private static final Logger LOG = LoggerFactory.getLogger(JsonCompareUtility.class);
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Check if child json exists inside parent json
+     * Check if json key is present inside actual json
      *
-     * @param parentJson - {@link String}
-     * @param childJson - {@link String}
+     * EXAMPLE: String json = "{ \"parent\": { \"child\": \"value\" } }";
+     *
+     * @param actualJson - {@link String}
+     * @param parentString - {@link String}
+     * @param keyString - {@link String}
      * @return - {@link String}
      */
-    public String jsonExistsWithinAnotherJson(String parentJson, String childJson) {
+    public String jsonKeyExistsWithinJson(String actualJson, String parentString, String keyString) {
 
+        String result = "Json exists within another json: ";
+        Boolean childPresent = false;
         try {
-            // Expected Json is included in actual Json
-            String expected = "{\"b\": \"val1\"}";
-            String actual = "{\"a\":\"val2\", \"b\":\"val1\"}";
-            JSONCompare.assertMatches(expected, actual); // assertion passes
+            // Parse the JSON string into a JsonNode object
+            JsonNode jsonNode = objectMapper.readTree(actualJson);
 
-            // JSON objects MUST have same sizes
-            String expected1 = "{\"b\": \"val1\"}";
-            String actual1 = "{\"a\":\"val2\", \"b\":\"val1\"}";
-            JSONCompare.assertNotMatches(expected1, actual1, Set.of(CompareMode.JSON_OBJECT_NON_EXTENSIBLE)); // assertion passes
-            JSONCompare.assertMatches(expected1, actual1, Set.of(CompareMode.JSON_OBJECT_NON_EXTENSIBLE)); // assertion fails
+            // Get the parent node
+            JsonNode parentNode = jsonNode.get(parentString);
 
+            // Check if the child node is present
+            childPresent = parentNode.has(keyString);
 
         } catch (Exception e) {
 
-            LOG.error("Something went wrong inside 'jsonExistsWithinAnotherJson'");
+            LOG.error("Something went wrong inside 'jsonKeyExistsWithinJson'");
             LOG.error("{} | {}", e.getMessage(), e.getClass());
         }
 
-        return null;
+        return result + childPresent;
     }
-
-
-
 
 }

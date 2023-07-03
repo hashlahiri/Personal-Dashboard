@@ -13,10 +13,9 @@ public class JsonCompareService {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public String findJsonInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
+    public String findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
 
-        return jsonCompareRepository.findJsonInsideAnotherJson(jsonCompareRequest);
+        return jsonCompareRepository.findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
     }
-
 
 }

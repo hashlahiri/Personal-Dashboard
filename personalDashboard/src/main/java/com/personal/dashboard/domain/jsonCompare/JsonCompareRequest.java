@@ -13,4 +13,5 @@ public class JsonCompareRequest {
 
     private String jsonCompare1;
     private String jsonCompare2;
+    private String jsonCompare3;
 }

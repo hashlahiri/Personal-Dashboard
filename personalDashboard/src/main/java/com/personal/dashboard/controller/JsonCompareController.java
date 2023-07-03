@@ -29,10 +29,10 @@ public class JsonCompareController {
      * @param jsonCompareRequest - {@link JsonCompareRequest}
      * @return - {@link String}
      */
-    @RequestMapping(value = "/ifexistswithin/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> ifJsonExistsWithinAnotherJson(@RequestBody(required = true)JsonCompareRequest jsonCompareRequest) {
+    @RequestMapping(value = "/ifKeyExists/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> ifKeyExistsWithinAnotherJsonEndpoint(@RequestBody(required = true)JsonCompareRequest jsonCompareRequest) {
 
-        String response = jsonCompareService.findJsonInsideAnotherJsonService(jsonCompareRequest);
+        String response = jsonCompareService.findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
 
         return new ResponseEntity<String>(response, HttpStatus.OK);
     }
