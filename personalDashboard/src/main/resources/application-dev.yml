@@ -17,17 +17,17 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
 weather:
   apikey: "ca3cc4741995c4a5bd2676871240df44"
-postgres:
-  datasource:
-    username: postgres
-    password: password@123
-    url: "jdbc:postgresql://localhost:8001/postgres"
-    jdbcUrl: "jdbc:postgresql://localhost:8001/postgres"
-    driver-class-name: org.postgresql.Driver
-mysql:
-  datasource:
-    username: root
-    password: password@123
-    url: "jdbc:mysql://localhost:8000/demomysql"
-    jdbcUrl: "jdbc:mysql://localhost:8000/demomysql"
-    driver-class-name: com.mysql.jdbc.Driver
+#postgres:
+#  datasource:
+#    username: postgres
+#    password: password@123
+#    url: "jdbc:postgresql://localhost:8001/postgres"
+#    jdbcUrl: "jdbc:postgresql://localhost:8001/postgres"
+#    driver-class-name: org.postgresql.Driver
+#mysql:
+#  datasource:
+#    username: root
+#    password: password@123
+#    url: "jdbc:mysql://localhost:8000/demomysql"
+#    jdbcUrl: "jdbc:mysql://localhost:8000/demomysql"
+#    driver-class-name: com.mysql.jdbc.Driver

@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
  * MongoDB configuration
  */
 @Configuration
-@EnableMongoRepositories(basePackages = "com.personal.dashboard.repository.mongo")
+@EnableMongoRepositories(basePackages = "com.personal.dashboard.repository")
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Value("${spring.data.mongodb.database}")
