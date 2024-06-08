@@ -1,7 +1,7 @@
 package com.personal.dashboard.controller;
 
-import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
-import com.personal.dashboard.domain.jsonCompare.response.JsonCompareResponse;
+import com.personal.dashboard.domain.mongo.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.mongo.jsonCompare.response.JsonCompareResponse;
 import com.personal.dashboard.service.jsonCompare.JsonCompareService;
 import com.personal.dashboard.utils.APIEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;

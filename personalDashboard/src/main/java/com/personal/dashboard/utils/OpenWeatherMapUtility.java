@@ -1,9 +1,9 @@
 package com.personal.dashboard.utils;
 
 import com.personal.dashboard.config.prop.OpenWeatherMapProperties;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherCityResponse;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherCityResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherRequest;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

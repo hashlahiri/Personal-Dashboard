@@ -1,6 +1,6 @@
 package com.personal.dashboard.repository.multidb;
 
-import com.personal.dashboard.domain.multidb.MultiDb;
+import com.personal.dashboard.domain.mongo.multidb.MultiDb;
 import com.personal.dashboard.repository.multidb.request.MultiDbRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,14 +23,8 @@ public class MultiDbRepositoryImpl implements MultiDbRepositoryCustom {
                     .name(request.getName()) // name
                     .build();
 
-            /** enter same data into multiple DB */
-
             /** Save into MONGODB */
             multiDbToSave = multiDbRepository.save(multiDbToSave);
-
-            /** Save into Postgresql */
-
-            /** Save into MySQL */
 
         } catch (Exception e) {
 

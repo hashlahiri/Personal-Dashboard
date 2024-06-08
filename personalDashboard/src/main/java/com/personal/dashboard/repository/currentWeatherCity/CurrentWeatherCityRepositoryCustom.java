@@ -1,6 +1,6 @@
 package com.personal.dashboard.repository.currentWeatherCity;
 
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherCityResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherCityResponse;
 
 public interface CurrentWeatherCityRepositoryCustom {
 

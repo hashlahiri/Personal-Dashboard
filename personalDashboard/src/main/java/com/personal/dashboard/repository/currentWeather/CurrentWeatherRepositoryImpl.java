@@ -1,14 +1,13 @@
 package com.personal.dashboard.repository.currentWeather;
 
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherRequest;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherResponse;
 import com.personal.dashboard.exception.ValidationError;
 import com.personal.dashboard.exception.ValidationException;
 import com.personal.dashboard.utils.OpenWeatherMapUtility;
 import com.personal.dashboard.validation.CurrentWeatherValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.SpringVersion;
 
 import java.util.List;
 

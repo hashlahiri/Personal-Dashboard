@@ -1,8 +1,8 @@
 package com.personal.dashboard.controller;
 
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherCityResponse;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherCityResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherRequest;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherResponse;
 import com.personal.dashboard.service.currentWeather.CurrentWeatherService;
 import com.personal.dashboard.utils.APIEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;

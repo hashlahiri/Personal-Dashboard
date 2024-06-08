@@ -1,6 +1,6 @@
 package com.personal.dashboard.repository.multidb;
 
-import com.personal.dashboard.domain.multidb.MultiDb;
+import com.personal.dashboard.domain.mongo.multidb.MultiDb;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

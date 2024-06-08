@@ -1,8 +1,8 @@
 package com.personal.dashboard.repository.jsonCompare;
 
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
-import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
-import com.personal.dashboard.domain.jsonCompare.response.JsonCompareResponse;
+import com.personal.dashboard.domain.mongo.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.mongo.jsonCompare.response.JsonCompareResponse;
 import com.personal.dashboard.exception.ValidationError;
 import com.personal.dashboard.exception.ValidationException;
 import com.personal.dashboard.utils.JsonCompareUtility;

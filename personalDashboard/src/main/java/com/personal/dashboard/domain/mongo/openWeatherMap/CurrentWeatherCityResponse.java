@@ -1,7 +1,7 @@
-package com.personal.dashboard.domain.openWeatherMap;
+package com.personal.dashboard.domain.mongo.openWeatherMap;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.personal.dashboard.domain.openWeatherMap.helper.*;
+import com.personal.dashboard.domain.mongo.openWeatherMap.helper.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

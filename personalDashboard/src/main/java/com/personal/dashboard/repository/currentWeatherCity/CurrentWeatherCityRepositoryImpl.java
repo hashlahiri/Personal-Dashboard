@@ -1,7 +1,7 @@
 package com.personal.dashboard.repository.currentWeatherCity;
 
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherCityResponse;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherCityResponse;
 import com.personal.dashboard.exception.ValidationError;
 import com.personal.dashboard.exception.ValidationException;
 import com.personal.dashboard.utils.OpenWeatherMapUtility;

@@ -1,7 +1,7 @@
-package com.personal.dashboard.domain.openWeatherMap;
+package com.personal.dashboard.domain.mongo.openWeatherMap;
 
-import com.personal.dashboard.domain.openWeatherMap.helper.City;
-import com.personal.dashboard.domain.openWeatherMap.helper.ListObject;
+import com.personal.dashboard.domain.mongo.openWeatherMap.helper.City;
+import com.personal.dashboard.domain.mongo.openWeatherMap.helper.ListObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

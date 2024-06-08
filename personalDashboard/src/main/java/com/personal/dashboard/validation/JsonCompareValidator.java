@@ -1,7 +1,7 @@
 package com.personal.dashboard.validation;
 
 import com.personal.dashboard.domain.enums.ValidationErrorType;
-import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.mongo.jsonCompare.request.JsonCompareRequest;
 import com.personal.dashboard.exception.ValidationError;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

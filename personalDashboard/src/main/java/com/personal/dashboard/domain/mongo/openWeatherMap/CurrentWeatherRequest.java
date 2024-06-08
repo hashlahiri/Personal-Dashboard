@@ -1,4 +1,4 @@
-package com.personal.dashboard.domain.openWeatherMap;
+package com.personal.dashboard.domain.mongo.openWeatherMap;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.personal.dashboard.domain.enums.Lang;

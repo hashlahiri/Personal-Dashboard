@@ -1,4 +1,4 @@
-package com.personal.dashboard.domain.openWeatherMap.helper;
+package com.personal.dashboard.domain.mongo.openWeatherMap.helper;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,12 +1,11 @@
 package com.personal.dashboard.validation;
 
 import com.personal.dashboard.domain.enums.ValidationErrorType;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
+import com.personal.dashboard.domain.mongo.openWeatherMap.CurrentWeatherRequest;
 import com.personal.dashboard.exception.ValidationError;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 
 import java.util.ArrayList;
 import java.util.List;

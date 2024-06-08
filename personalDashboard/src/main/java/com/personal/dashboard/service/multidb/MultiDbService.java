@@ -1,6 +1,6 @@
 package com.personal.dashboard.service.multidb;
 
-import com.personal.dashboard.domain.multidb.MultiDb;
+import com.personal.dashboard.domain.mongo.multidb.MultiDb;
 import com.personal.dashboard.repository.multidb.MultiDbRepository;
 import com.personal.dashboard.repository.multidb.request.MultiDbRequest;
 import org.springframework.beans.factory.annotation.Autowired;

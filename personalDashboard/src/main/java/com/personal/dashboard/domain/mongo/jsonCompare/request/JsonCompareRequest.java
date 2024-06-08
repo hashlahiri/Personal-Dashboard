@@ -1,4 +1,4 @@
-package com.personal.dashboard.domain.jsonCompare.request;
+package com.personal.dashboard.domain.mongo.jsonCompare.request;
 
 import lombok.*;
 
