@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0865478d-6b7d-428f-bac4-0de7e385b3d5",
-		"name": "PersonalDashboard APIs",
+		"name": "Personal-Project-Dashboard APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19075691"
 	},
@@ -298,7 +298,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"jsonCompare1\": \"{ \\\"parent\\\": { \\\"child\\\": \\\"value\\\" } }\",\r\n    \"jsonCompare2\": \"parent\",\r\n    \"jsonCompare3\": \"child\"\r\n}"
+							"raw": "{\r\n    \"payload\": \"{ \\\"parent\\\": { \\\"child\\\": \\\"value\\\" } }\",\r\n    \"parentKey\": \"parent\",\r\n    \"childKey\": \"child\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/json/ifKeyExists/",
@@ -315,6 +315,10 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Kafka Controller",
+			"item": []
 		}
 	]
 }
