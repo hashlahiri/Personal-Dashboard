@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 @Repository
-public interface CurrentWeatherRepository extends MongoRepository<CurrentWeatherResponse, Serializable>, CurrentWeatherRepositoryCustom {
+public interface CurrentWeatherRepository extends MongoRepository<CurrentWeatherResponse, Serializable>,
+        CurrentWeatherRepositoryCustom {
 
 
 }

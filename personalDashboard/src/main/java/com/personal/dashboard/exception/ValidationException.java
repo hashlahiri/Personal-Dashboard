@@ -4,8 +4,6 @@ import com.personal.dashboard.domain.enums.ErrorResponseEnum;
 
 import java.util.List;
 
-
-
 public class ValidationException extends ApplicationException {
 
 	private static final long serialVersionUID = -6716946745272850153L;

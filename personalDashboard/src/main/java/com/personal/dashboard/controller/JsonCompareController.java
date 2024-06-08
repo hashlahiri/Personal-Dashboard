@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * JSON compare controller
+ */
 @RestController
 @RequestMapping(value = APIEndpoints.JSON_COMPARE_API_URL)
 public class JsonCompareController {
@@ -32,9 +35,10 @@ public class JsonCompareController {
     @RequestMapping(value = "/ifKeyExists/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> ifKeyExistsWithinAnotherJsonEndpoint(@RequestBody(required = true)JsonCompareRequest jsonCompareRequest) {
 
-        String response = jsonCompareService.findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
+        String response = jsonCompareService.
+                findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
 
-        return new ResponseEntity<String>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 

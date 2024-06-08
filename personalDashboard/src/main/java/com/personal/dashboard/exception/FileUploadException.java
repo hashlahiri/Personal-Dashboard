@@ -1,7 +1,5 @@
 package com.personal.dashboard.exception;
 
-
-
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
 
 import java.util.List;

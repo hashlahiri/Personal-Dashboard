@@ -11,6 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Current weather controller
+ */
 @RestController
 @RequestMapping(value = APIEndpoints.CURRENT_WEATHER_API_URL)
 public class CurrentWeatherController {
@@ -27,11 +30,12 @@ public class CurrentWeatherController {
      * @return - {@link CurrentWeatherResponse}
      */
     @RequestMapping(value = "/latLong", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CurrentWeatherResponse> getByLatLong(@RequestBody(required = true)CurrentWeatherRequest currentWeatherRequest) {
+    public ResponseEntity<CurrentWeatherResponse> getByLatLong(
+            @RequestBody CurrentWeatherRequest currentWeatherRequest) {
 
         CurrentWeatherResponse response = currentWeatherService.getByLatLongService(currentWeatherRequest);
 
-        return new ResponseEntity<CurrentWeatherResponse>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     /**
@@ -49,9 +53,10 @@ public class CurrentWeatherController {
         @RequestParam(value = "countryCode", required = false) String countryCode
     ) {
 
-        CurrentWeatherCityResponse response = currentWeatherService.getByCityStateCountryService(city, stateCode, countryCode);
+        CurrentWeatherCityResponse response = currentWeatherService.
+                getByCityStateCountryService(city, stateCode, countryCode);
 
-        return new ResponseEntity<CurrentWeatherCityResponse>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     /**
@@ -67,9 +72,10 @@ public class CurrentWeatherController {
             @RequestParam(value = "countryCode", required = true) String countryCode
     ) {
 
-        CurrentWeatherCityResponse response = currentWeatherService.getByZipCodeCountryService(zipCode, countryCode);
+        CurrentWeatherCityResponse response = currentWeatherService.
+                getByZipCodeCountryService(zipCode, countryCode);
 
-        return new ResponseEntity<CurrentWeatherCityResponse>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

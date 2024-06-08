@@ -10,6 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * Current weather response
+ *
+ * NOTE: Non collection POJO
+ */
 @Document("currentWeather")
 @Data
 @NoArgsConstructor

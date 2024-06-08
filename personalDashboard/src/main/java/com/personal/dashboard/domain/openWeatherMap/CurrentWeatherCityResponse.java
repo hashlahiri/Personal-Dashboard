@@ -11,6 +11,11 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
 
+/**
+ * Current weather city response
+ *
+ * NOTE: Collection POJO
+ */
 @Document("currentWeatherByCity")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data

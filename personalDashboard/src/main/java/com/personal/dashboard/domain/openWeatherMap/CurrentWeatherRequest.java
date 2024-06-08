@@ -8,6 +8,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Current weather request
+ *
+ * NOTE: Non collection POJO
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
