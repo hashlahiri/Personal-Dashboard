@@ -1,11 +1,14 @@
 server:
   port: 9000
+  servlet:
+    context-path: /personaldashboard
 spring:
   banner:
     location: classpath:banner.txt
   data:
     mongodb:
       uri: mongodb://localhost:27017/personalDashboardApp
+      database: personalDashboardApp
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true

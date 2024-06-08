@@ -5,26 +5,54 @@ import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
+import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
+import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
 /**
  * MongoDB configuration
  */
 @Configuration
 @EnableMongoRepositories(basePackages = "com.personal.dashboard.repository")
-public class DataConfig1 {
+public class DataConfig1 extends AbstractMongoClientConfiguration {
 
-    @Value("${spring.data.mongodb.uri}") // Correct property name
-    private String mongodbUri;
+    @Value("${spring.data.mongodb.database}")
+    private String databaseName;
 
-    @Bean
-    public MongoTemplate mongoTemplate(MongoClient mongoClient) {
-        return new MongoTemplate(mongoClient, "personalDashboardApp"); // Use the actual database name
+    @Value("${spring.data.mongodb.uri}")
+    private String mongoUri;
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    protected String getDatabaseName() {
+        return databaseName;
+    }
+
+    @Override
+    public MongoClient mongoClient() {
+        return MongoClients.create(mongoUri);
     }
 
     @Bean
-    public MongoClient mongoClient() {
-        return MongoClients.create(mongodbUri); // Spring Boot handles MongoClient creation
+    public MongoTemplate mongoTemplate(MongoDatabaseFactory databaseFactory, MappingMongoConverter converter) {
+        converter.setTypeMapper(new DefaultMongoTypeMapper(null));
+        return new MongoTemplate(databaseFactory, converter);
+    }
+
+    @Bean
+    public MongoTemplate mongoTemplate() throws Exception {
+        return new MongoTemplate(mongoDatabaseFactory());
+    }
+
+    @Bean
+    @Primary
+    public MongoDatabaseFactory mongoDatabaseFactory() {
+        return new SimpleMongoClientDatabaseFactory(mongoClient(), getDatabaseName());
     }
 }

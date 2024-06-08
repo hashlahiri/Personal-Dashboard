@@ -36,19 +36,4 @@ public class SwaggerConfig {
                         "helloclahiri@gmail.com"))
                 .version("1.0").build();
     }
-
-
-
-
-//    //main swagger configuration with api details
-//    private ApiInfo apiDetails() {
-//        return new ApiInfo(
-//
-//                "MongoDB Dev Student Api", "ConnectingDots Infotech Api Training", "1.0", "Free to use",
-//                new springfox.documentation.service.Contact("Chanakya Lahiri", "google.com",
-//                        "chanakya.l@connectingdotsinfotech.com"),
-//                "API License", "http://google.com", Collections.emptyList()
-//
-//        );
-//    }
 }
