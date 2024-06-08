@@ -1,24 +1,20 @@
 package com.personal.dashboard.utils;
 
-import com.personal.dashboard.config.propertiesFile.OpenWeatherMapProperties;
+import com.personal.dashboard.config.prop.OpenWeatherMapProperties;
 import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherCityResponse;
 import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
 import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.UriBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
 
 @Component
 public class OpenWeatherMapUtility {
 
     @Autowired
     private OpenWeatherMapProperties openWeatherMapProperties;
+
     private final String OPEN_WEATHER_CURRENT_FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast";
     private final String OPEN_WEATHER_CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
     private static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(OpenWeatherMapUtility.class);

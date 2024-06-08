@@ -13,12 +13,7 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
 weather:
-  apikey: ca3cc4741995c4a5bd2676871240df44
-mongodb:
-  datasource:
-    url: "mongodb://localhost:27017"
-    jdbcUrl: "mongodb://localhost:27017"
-    driver-class-name: mongodb.jdbc.MongoDriver
+  apikey: "ca3cc4741995c4a5bd2676871240df44"
 postgres:
   datasource:
     username: postgres
