@@ -11,4 +11,5 @@ public final class APIEndpoints {
 	public static final String CURRENT_WEATHER_API_URL = BASE_API_URL + "/currentWeather";
 	public static final String JSON_COMPARE_API_URL = BASE_API_URL + "/json";
 	public static final String MULTI_DB_API_URL = BASE_API_URL + "/multi";
+	public static final String KAFKA_API_URL = BASE_API_URL + "/kafka";
 }

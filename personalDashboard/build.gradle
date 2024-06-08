@@ -33,6 +33,7 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
 	implementation "io.springfox:springfox-swagger2:2.9.2"
 	implementation "io.springfox:springfox-swagger-ui:2.9.2"
+	implementation 'org.springframework.kafka:spring-kafka'
 
 
 	compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
