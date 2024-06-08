@@ -1,7 +1,7 @@
 package com.personal.dashboard.validation;
 
 import com.personal.dashboard.domain.enums.ValidationErrorType;
-import com.personal.dashboard.domain.jsonCompare.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
 import com.personal.dashboard.exception.ValidationError;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -34,18 +34,18 @@ public class JsonCompareValidator {
                     ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
         } else {
 
-            if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare1())) {
-                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare1'' cannot be Empty, contains actual json",
+            if(StringUtils.isEmpty(jsonCompareRequest.getPayload())) {
+                validationErrorList.add(new ValidationError("'payload' cannot be Empty, contains actual json",
                         ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
             }
 
-            if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare2())) {
-                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare2'' cannot be Empty, it holds the json pointer to search under",
+            if(StringUtils.isEmpty(jsonCompareRequest.getParentKey())) {
+                validationErrorList.add(new ValidationError("'parentKey' cannot be Empty, it holds the json pointer to search under",
                         ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
             }
 
-            if(StringUtils.isEmpty(jsonCompareRequest.getJsonCompare3())) {
-                validationErrorList.add(new ValidationError("'jsonCompareRequest 'jsonCompare3'' cannot be Empty, it holds the json key we are searching",
+            if(StringUtils.isEmpty(jsonCompareRequest.getChildKey())) {
+                validationErrorList.add(new ValidationError("'childKey' cannot be Empty, it holds the json key we are searching",
                         ValidationErrorType.REQUIRED_FIELD_MISSING.getErrorType()));
             }
 

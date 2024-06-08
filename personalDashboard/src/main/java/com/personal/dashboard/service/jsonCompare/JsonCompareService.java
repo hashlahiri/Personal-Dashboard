@@ -1,6 +1,7 @@
 package com.personal.dashboard.service.jsonCompare;
 
-import com.personal.dashboard.domain.jsonCompare.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.response.JsonCompareResponse;
 import com.personal.dashboard.repository.jsonCompare.JsonCompareRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class JsonCompareService {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public String findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
+    public JsonCompareResponse findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
 
         return jsonCompareRepository.findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
     }

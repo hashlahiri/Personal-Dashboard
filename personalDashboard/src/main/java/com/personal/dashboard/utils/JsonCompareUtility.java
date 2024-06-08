@@ -30,11 +30,10 @@ public class JsonCompareUtility {
      * @param actualJson - {@link String}
      * @param parentString - {@link String}
      * @param keyString - {@link String}
-     * @return - {@link String}
+     * @return - {@link Boolean}
      */
-    public String jsonKeyExistsWithinJson(String actualJson, String parentString, String keyString) {
+    public Boolean jsonKeyExistsWithinJson(String actualJson, String parentString, String keyString) {
 
-        String result = "Json exists within another json: ";
         Boolean childPresent = false;
         try {
             // Parse the JSON string into a JsonNode object
@@ -52,7 +51,7 @@ public class JsonCompareUtility {
             LOG.error("{} | {}", e.getMessage(), e.getClass());
         }
 
-        return result + childPresent;
+        return childPresent;
     }
 
 }

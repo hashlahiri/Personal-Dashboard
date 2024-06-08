@@ -1,8 +1,7 @@
 package com.personal.dashboard.controller;
 
-import com.personal.dashboard.domain.jsonCompare.JsonCompareRequest;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherRequest;
-import com.personal.dashboard.domain.openWeatherMap.CurrentWeatherResponse;
+import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.response.JsonCompareResponse;
 import com.personal.dashboard.service.jsonCompare.JsonCompareService;
 import com.personal.dashboard.utils.APIEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +32,10 @@ public class JsonCompareController {
      * @return - {@link String}
      */
     @RequestMapping(value = "/ifKeyExists/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> ifKeyExistsWithinAnotherJsonEndpoint(@RequestBody(required = true)JsonCompareRequest jsonCompareRequest) {
+    public ResponseEntity<JsonCompareResponse> ifKeyExistsWithinAnotherJsonEndpoint(
+            @RequestBody JsonCompareRequest jsonCompareRequest) {
 
-        String response = jsonCompareService.
+        JsonCompareResponse response = jsonCompareService.
                 findJsonKeyInsideAnotherJsonService(jsonCompareRequest);
 
         return new ResponseEntity<>(response, HttpStatus.OK);

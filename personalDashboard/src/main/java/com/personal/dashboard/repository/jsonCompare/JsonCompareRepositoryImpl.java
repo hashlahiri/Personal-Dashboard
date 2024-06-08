@@ -1,7 +1,8 @@
 package com.personal.dashboard.repository.jsonCompare;
 
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
-import com.personal.dashboard.domain.jsonCompare.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.request.JsonCompareRequest;
+import com.personal.dashboard.domain.jsonCompare.response.JsonCompareResponse;
 import com.personal.dashboard.exception.ValidationError;
 import com.personal.dashboard.exception.ValidationException;
 import com.personal.dashboard.utils.JsonCompareUtility;
@@ -29,9 +30,12 @@ public class JsonCompareRepositoryImpl {
      * @param jsonCompareRequest - {@link JsonCompareRequest}
      * @return - {@link String}
      */
-    public String findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
-        
-        String result = null;
+    public JsonCompareResponse findJsonKeyInsideAnotherJsonService(JsonCompareRequest jsonCompareRequest) {
+
+        /** response object */
+        JsonCompareResponse response = JsonCompareResponse.builder()
+                .exists(false) // exists
+                .build();
         try {
             //validation
             List<ValidationError> validationErrorList = JsonCompareValidator.validateJsonKeyExistsWithinJson(jsonCompareRequest);
@@ -40,9 +44,14 @@ public class JsonCompareRepositoryImpl {
                 throw new ValidationException(validationErrorList, ErrorResponseEnum.VALIDATION_ERROR);
             }
 
-            // jsonCompare1 --> Json, jsonCompare2 --> Key we are searching for
-            result = jsonCompareUtility.jsonKeyExistsWithinJson(jsonCompareRequest.getJsonCompare1(), jsonCompareRequest.getJsonCompare2(),
-                    jsonCompareRequest.getJsonCompare3());
+            // parentKey --> Json, childKey --> Key we are searching for
+            boolean isExists = jsonCompareUtility.jsonKeyExistsWithinJson(
+                    jsonCompareRequest.getPayload(), jsonCompareRequest.getParentKey(),
+                    jsonCompareRequest.getChildKey());
+
+            response = response.toBuilder()
+                    .exists(isExists) // exists
+                    .build();
 
             LOG.info("Successfully processed json comparison");
             
@@ -52,7 +61,7 @@ public class JsonCompareRepositoryImpl {
             LOG.error("{} | {}", e.getMessage(), e.getClass());
         }
         
-        return result;
+        return response;
     }
 
 }
