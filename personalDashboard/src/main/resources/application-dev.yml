@@ -23,7 +23,7 @@ spring:
       template:
         default-topic: my-topic
 weather:
-  apikey: "ca3cc4741995c4a5bd2676871240df44"
+  apikey: "ca3c41995c4d26768712f44"
 #postgres:
 #  datasource:
 #    username: postgres
