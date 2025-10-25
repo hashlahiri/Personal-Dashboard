@@ -1,0 +1,75 @@
+# Root .gitignore for the repository
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+**/node_modules/
+
+# Personal Dashboard UI (Next.js)
+/personal-dashboard-ui/node_modules/
+/personal-dashboard-ui/**/node_modules/
+/personal-dashboard-ui/.next/
+/personal-dashboard-ui/.next/**
+/personal-dashboard-ui/.env
+/personal-dashboard-ui/.env.local
+/personal-dashboard-ui/.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# Build outputs
+dist/
+build/
+
+# Note: backend-specific ignores live in `personalDashboard/.gitignore` (Gradle, IDE files, etc.)
+# If you prefer a single top-level .gitignore we can merge that file into this one.
+
+### Backend: personalDashboard (Gradle / IntelliJ / VS Code)
+# These entries were present in personalDashboard/.gitignore — namespaced to the folder
+/personalDashboard/HELP.md
+/personalDashboard/.gradle/
+/personalDashboard/build/
+!/personalDashboard/gradle/wrapper/gradle-wrapper.jar
+!/personalDashboard/**/src/main/**/build/
+!/personalDashboard/**/src/test/**/build/
+
+### STS / Eclipse related (backend)
+/personalDashboard/.apt_generated
+/personalDashboard/.classpath
+/personalDashboard/.factorypath
+/personalDashboard/.project
+/personalDashboard/.settings/
+/personalDashboard/.springBeans
+/personalDashboard/.sts4-cache
+/personalDashboard/bin/
+!/personalDashboard/**/src/main/**/bin/
+!/personalDashboard/**/src/test/**/bin/
+
+### IntelliJ IDEA (backend)
+/personalDashboard/.idea/
+/personalDashboard/*.iws
+/personalDashboard/*.iml
+/personalDashboard/*.ipr
+/personalDashboard/out/
+!/personalDashboard/**/src/main/**/out/
+!/personalDashboard/**/src/test/**/out/
+
+### NetBeans (backend)
+/personalDashboard/nbproject/private/
+/personalDashboard/nbbuild/
+/personalDashboard/dist/
+/personalDashboard/nbdist/
+/personalDashboard/.nb-gradle/
+
+### VS Code (backend)
+/personalDashboard/.vscode/

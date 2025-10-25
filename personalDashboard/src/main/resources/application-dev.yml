@@ -7,8 +7,8 @@ spring:
     location: classpath:banner.txt
   data:
     mongodb:
-      uri: mongodb://localhost:27017/personalDashboardApp
-      database: personalDashboardApp
+      uri: mongodb://localhost:27017/personalDashboard
+      database: personalDashboard
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true
@@ -17,13 +17,13 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   kafka:
     producer:
-      bootstrap-servers: kafka:9092
+      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       template:
         default-topic: my-topic
 weather:
-  apikey: "ca3c41995c4d26768712f44"
+  apikey: "ca3cc4741995c4a5bd2676871240df44"
 #postgres:
 #  datasource:
 #    username: postgres
@@ -38,3 +38,18 @@ weather:
 #    url: "jdbc:mysql://localhost:8000/demomysql"
 #    jdbcUrl: "jdbc:mysql://localhost:8000/demomysql"
 #    driver-class-name: com.mysql.jdbc.Driver
+
+
+### Setting up Apache Kafka on Docker Container ###
+# docker rm -f -v ApacheKafkaLatest 2>/dev/null || true
+# docker run -d --name ApacheKafkaLatest \
+#  -p 9092:9092 -p 9093:9093 \
+#  -e KAFKA_PROCESS_ROLES=broker,controller \
+#  -e KAFKA_NODE_ID=1 \
+#  -e KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 \
+#  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 \
+#  -e KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER \
+#  -e KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 \
+#  -e CLUSTER_ID=5L6g3nShT-eMCtK--X86sw \
+#  apache/kafka:latest
+
