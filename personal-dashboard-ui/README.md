@@ -67,3 +67,8 @@ personal-dashboard-ui/
 
 
 
+Steps: 
+First types.ts
+THEN api.ts
+THEN sections > WeatherWidget.tsx
+THEN finally > page.tsx

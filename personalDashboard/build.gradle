@@ -35,7 +35,7 @@ dependencies {
 	implementation "io.springfox:springfox-swagger-ui:2.9.2"
 	implementation 'org.springframework.kafka:spring-kafka'
 
-
+	runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.114.Final:osx-aarch_64")
 	compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
