@@ -1,18 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Cloud,
-  Sun,
-  Moon,
-  CloudRain,
-  CloudSnow,
-  CloudLightning,
-  Droplets,
-  Wind,
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { fetchWeather } from "@/lib/api";
+import { Cloud, Sun, Moon, CloudRain, CloudSnow, CloudLightning, Droplets, Wind } from "lucide-react";
+import { motion } from "framer-motion";
+import { getWeather } from "@/services/weatherService";
 import type { WeatherData } from "@/lib/types";
 
 let ongoingWeatherFetch: Promise<WeatherData | null> | null = null;
@@ -43,7 +34,7 @@ export function WeatherWidget() {
       setError(null);
       try {
         if (!ongoingWeatherFetch) {
-          ongoingWeatherFetch = fetchWeather("florence", "IT");
+          ongoingWeatherFetch = getWeather("florence", "IT");
         }
         const data = await ongoingWeatherFetch;
         // clear the module-level promise so future calls re-fetch on demand

@@ -31,7 +31,7 @@ public class JsonCompareController {
      * @param jsonCompareRequest - {@link JsonCompareRequest}
      * @return - {@link String}
      */
-    @RequestMapping(value = "/ifKeyExists/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/ifKeyExists", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JsonCompareResponse> ifKeyExistsWithinAnotherJsonEndpoint(
             @RequestBody JsonCompareRequest jsonCompareRequest) {
 
