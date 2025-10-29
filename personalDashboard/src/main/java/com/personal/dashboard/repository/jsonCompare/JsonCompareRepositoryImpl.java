@@ -1,5 +1,8 @@
 package com.personal.dashboard.repository.jsonCompare;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.personal.dashboard.domain.enums.ErrorResponseEnum;
 import com.personal.dashboard.domain.mongo.jsonCompare.request.JsonCompareRequest;
 import com.personal.dashboard.domain.mongo.jsonCompare.response.JsonCompareResponse;
@@ -19,6 +22,9 @@ public class JsonCompareRepositoryImpl {
 
     @Autowired
     private JsonCompareUtility jsonCompareUtility;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     private static final Logger LOG = LoggerFactory.getLogger(JsonCompareRepositoryImpl.class);
             
@@ -44,9 +50,12 @@ public class JsonCompareRepositoryImpl {
                 throw new ValidationException(validationErrorList, ErrorResponseEnum.VALIDATION_ERROR);
             }
 
+            JsonNode tree = objectMapper.readTree(jsonCompareRequest.getPayload());
+
             // parentKey --> Json, childKey --> Key we are searching for
             boolean isExists = jsonCompareUtility.jsonKeyExistsWithinJson(
-                    jsonCompareRequest.getPayload(), jsonCompareRequest.getParentKey(),
+                    tree,
+                    jsonCompareRequest.getParentKey(),
                     jsonCompareRequest.getChildKey());
 
             response = response.toBuilder()
@@ -54,13 +63,17 @@ public class JsonCompareRepositoryImpl {
                     .build();
 
             LOG.info("Successfully processed json comparison");
-            
+
+        } catch (JsonProcessingException e) {
+            throw new ValidationException(
+                    List.of(new ValidationError("payload", "Invalid JSON")),
+                    ErrorResponseEnum.VALIDATION_ERROR);
         } catch (Exception e) {
-            
+
             LOG.error("Something went wrong inside 'findJsonInsideAnotherJson'");
             LOG.error("{} | {}", e.getMessage(), e.getClass());
         }
-        
+
         return response;
     }
 

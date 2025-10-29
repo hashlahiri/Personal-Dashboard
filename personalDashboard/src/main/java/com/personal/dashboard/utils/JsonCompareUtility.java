@@ -27,23 +27,20 @@ public class JsonCompareUtility {
      *
      * EXAMPLE: String json = "{ \"parent\": { \"child\": \"value\" } }";
      *
-     * @param actualJson - {@link String}
-     * @param parentString - {@link String}
-     * @param keyString - {@link String}
+     * @param root - {@link JsonNode}
+     * @param parentKey - {@link String}
+     * @param childKey - {@link String}
      * @return - {@link Boolean}
      */
-    public Boolean jsonKeyExistsWithinJson(String actualJson, String parentString, String keyString) {
+    public boolean jsonKeyExistsWithinJson(JsonNode root, String parentKey, String childKey) {
 
         Boolean childPresent = false;
         try {
-            // Parse the JSON string into a JsonNode object
-            JsonNode jsonNode = objectMapper.readTree(actualJson);
+            // get the parentKey
+            JsonNode parent = root.get(parentKey);
 
-            // Get the parent node
-            JsonNode parentNode = jsonNode.get(parentString);
-
-            // Check if the child node is present
-            childPresent = parentNode.has(keyString);
+            // compare and return
+            return parent != null && parent.has(childKey);
 
         } catch (Exception e) {
 
