@@ -26,9 +26,15 @@ A modular, responsive dashboard that aggregates real-time data from multiple ope
 ---
 
 ## 🖼  Screenshots
-| Welcome Page | Weather Data | Currency Converter | SpaceX Timer |
-|--------------|--------------|--------------------|--------------|
-| !Welcome     | !Weather     | !Currency          | !Launch      |
+<div align="center">
+  <img src="https://github.com/hashlahiri/Personal-Dashboard/blob/main/personalDashboardApp%20-%20Screens/v2Nightlight.png" alt="Dashboard nightlight v2 preview" width="900">
+</div> <br />
+<div align="center">
+  <img src="https://github.com/hashlahiri/Personal-Dashboard/blob/main/personalDashboardApp%20-%20Screens/WeatherData.png" alt="Dashboard backend implementation" width="900">
+</div> <br />
+<div align="center">
+  <img src="https://github.com/hashlahiri/Personal-Dashboard/blob/main/personalDashboardApp%20-%20Screens/v2Daylight.png" alt="Dashboard daylight v2 preview" width="900">
+</div>
 
 ---
 
