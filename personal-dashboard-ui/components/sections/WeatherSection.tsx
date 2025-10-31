@@ -23,7 +23,7 @@ const WeatherIcon = ({ description }: { description: string }) => {
   return <Icon className="h-16 w-16 text-blue-500" />;
 };
 
-export function WeatherWidget() {
+export function WeatherSection() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, XCircle } from "lucide-react";
 import { checkJsonKeyExists } from "@/services/jsonCompareService";
 
-export function JsonKeyWidget() {
+export function JsonKeySection() {
   const [payload, setPayload]   = useState('{"parent":{"child":"value"}}');
   const [parent, setParent]     = useState("parent");
   const [child, setChild]       = useState("child");
