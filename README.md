@@ -1,71 +1,104 @@
-### Personal-Project-Dashboard
-Welcome to the Personal-Project-Dashboard, a robust and dynamic dashboard powered by Spring Boot and MongoDB. This project is designed with backend developers in mind, providing a convenient platform for working with JSON and string objects through OPEN API integrations.
+# Personal-Dashboard  
+**Backend**: Spring Boot + MongoDB  
+**Frontend**: Next.js 14 (React) + Tailwind CSS + TypeScript  
+**Extras**: Redis Streams, Kafka, Docker Compose, open APIs
 
-### Features
-* Spring Boot Backend: Leverage the simplicity and power of Spring Boot for your backend services.
-* MongoDB Integration: Enjoy the flexibility of MongoDB for efficient data storage and retrieval.
-* OPEN API Integration: Connect to various OPEN APIs to collect and display dashboard data.
-* Weather Data: Utilize multiple OpenWeatherMap APIs with stable, error-handled controller flows that return JSON responses for weather data visualization.
-* Json Comparator: Search for a JSON combination inside another JSON, through a specific algorithm for search
-* Kafka: Kafka Producer and Consumer implemented inside [must have pre-installed apache kafka on system]
+A modular, responsive dashboard that aggregates real-time data from multiple open APIs and displays it in a beautiful, glass-morphic interface.
 
+---
 
-### Getting Started
-To get started with this project, follow these steps:
+## ✨  What’s New (v2)
 
-### Clone the repository:
+| Feature | Tech Stack | Description |
+|---------|------------|-------------|
+| **Next.js 14 Dashboard** | React 18, App Router, TypeScript, Tailwind CSS | Server-side rendered UI with dark-mode support and responsive masonry grid. |
+| **Glass-morphism UI** | Tailwind CSS, backdrop-blur, gradients** | Cards float above a blurred background with subtle gradients that adapt to light/dark mode. |
+| **Weather Widget** | OpenWeatherMap API | Live city weather + 5-min auto-refresh. |
+| **Currency Converter** | Frankfurter (ECB) API | Real-time FX rates with 24 h client cache. |
+| **JSON Comparator** | Custom Spring Boot endpoint | Search a JSON key inside another JSON via REST. |
+| **SpaceX Launch Timer** | SpaceX public API | Count-down to next Falcon 9 / Starship launch. |
+| **UK Carbon Intensity** | carbonintensity.org.uk | Live grams of CO₂ per kWh with colour-coded badge. |
+| **Today’s XKCD Comic** | xkcd.com (via internal proxy) | Auto-updates daily; no CORS issues. |
+| **Redis Streams Micro-service** | Docker Compose, Node.js, GraphQL Subscriptions | Pushes chess moves to multiple dashboards in real-time (optional). |
+| **Kafka Producer / Consumer** | Apache Kafka | Event-driven messaging pipeline (local dev). |
+| **Docker Compose** | Redis, Node subscriber, Spring Boot | One-command `docker-compose up` spins up entire stack. |
+
+---
+
+## 🖼  Screenshots
+| Welcome Page | Weather Data | Currency Converter | SpaceX Timer |
+|--------------|--------------|--------------------|--------------|
+| !Welcome     | !Weather     | !Currency          | !Launch      |
+
+---
+
+## 🚀  Quick Start (Full Stack)
+
+### 1. Clone
+```bash
+git clone https://github.com/hashlahiri/Personal-Dashboard.git
+cd Personal-Dashboard
 ```
-git clone https://github.com/hashlahiri/Personal-Project-Dashboard.git
+
+### 2. Backend (Spring Boot + MongoDB)
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+MongoDB URI: `mongodb://localhost:27017/personal_dashboard`
+
+### 3. Frontend (Next.js)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Visit http://localhost:3000
+
+### 4. Redis (optional real-time features)
+```bash
+docker-compose up -d   # redis + node-subscriber
 ```
 
-## Kafka Producer and Consumer Configuration:
-* Download Apache Kafka on your Windows system.
-* Extract the Kafka archive to a directory (e.g., C:\kafka).
-* Navigate to the Kafka configuration folder: C:\kafka\config.
+### 5. Kafka (optional)
+Follow the original Kafka setup guide in this README.
 
-### Edit the server.properties file:
-* Search for the property logs and set it to C:\kafka\logs.
+---
 
-### Edit the zookeeper.properties file:
-* Search for the property logs and set it to C:\kafka\logs.
+## 📦  Open APIs Used
+| API | Purpose | Docs |
+|-----|---------|------|
+| OpenWeatherMap | Weather | https://openweathermap.org/api |
+| Frankfurter (ECB) | Currency rates | https://www.frankfurter.app |
+| SpaceX | Launch data | https://github.com/r-spacex/SpaceX-API |
+| carbonintensity.org.uk | UK grid CO₂ | https://carbonintensity.org.uk |
+| xkcd.com | Daily comic | https://xkcd.com/json.html |
 
-### Start the Kafka Server:
-* Open a terminal and navigate to C:\kafka.
+---
 
-### Start Zookeeper:
-* .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+## 🛠  Tech Stack at a Glance
+| Layer | Tech |
+|-------|------|
+| Backend | Java 21, Spring Boot 3, MongoDB, Kafka, Redis |
+| Frontend | Next.js 14, React 18, TypeScript, Tailwind CSS |
+| DevOps | Docker Compose, Maven, npm |
+| Styling | Glass-morphism, dark/light mode, responsive masonry |
+| Real-time | Redis Streams → Node micro-service → GraphQL Subscriptions |
 
-### Start the Kafka broker:
-* .\bin\windows\kafka-server-start.bat .\config\server.properties
+---
 
-### Create a Kafka Topic and Produce Messages:
-* Open another terminal in C:\kafka\bin\windows.
-* Create a topic named my-topic:
-* kafka-topics.bat --create --bootstrap-server localhost:9092 --topic my-topic
+## 🤝  Contributing
+PRs welcome!  
+- Add a new open-API widget  
+- Improve glass-morphism theme  
+- Add tests (Jest / Spring-Boot Test)
 
-### Start a console producer for the topic:
-* kafka-console-producer.bat --broker-list localhost:9092 --topic my-topic
+---
 
-### Listen to the Kafka Topic and Consume Messages:
-* Open another terminal in C:\kafka\bin\windows.
-* Start a console consumer for the topic:
-* kafka-console-consumer.bat --topic my-topic --bootstrap-server localhost:9092 --from-beginning
+## 📄  License
+MIT © 2025 hashlahiri
 
-## Screenshots
-Here are some screenshots of the dashboard in action:
+---
 
-* Welcome Page: !Welcome Page
-* Weather Data: !Weather Data
-
-## Contributing
-Contributions are welcome! If you have any ideas or issues, feel free to open an issue or submit a pull request.
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## Acknowledgments
-* Spring Boot
-* MongoDB
-* OpenWeatherMap
-* Apache Kafka
-* JSON Comparator
+## 🙏  Acknowledgments
+Spring Boot, MongoDB, Next.js, Tailwind CSS, Redis, Kafka, OpenWeatherMap, Frankfurter, SpaceX, carbonintensity.org.uk, xkcd.com
