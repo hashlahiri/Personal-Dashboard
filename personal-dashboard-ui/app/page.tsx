@@ -1,5 +1,5 @@
-import { JsonKeyWidget } from "@/components/sections/JsonKeyWidget";
-import { WeatherWidget } from "@/components/sections/WeatherWidget";
+import { JsonKeyWidget } from "@/components/sections/JsonKeySection";
+import { WeatherWidget } from "@/components/sections/WeatherSection";
 
 export default function DashboardPage() {
   return (

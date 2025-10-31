@@ -9,15 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chess.js": "^1.4.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.460.0",
     "next": "14.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recharts": "^2.10.3",
+    "stockfish.js": "^10.0.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/chess.js": "^0.13.7",
     "@types/node": "24.9.1",
     "@types/react": "19.2.2",
     "autoprefixer": "^10.4.19",
